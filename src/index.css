@@ -3,4 +3,11 @@
 @theme {
   --color-primary: #0096FF;
   --color-primary-hover: #005FA3;
+  --color-secondary: #FF6A00;
+  --shadow-primary: 0 0 10px -5px rgba(0, 0, 0, 0.5);
+  --color-brand-gray: #4C556A;
+  --color-third: #EA00FF;
+  --color-fourth: #6A00FF;
+  --color-fourth-hover: #0095FF;
+  --color-fifth: #0015FF;
 }

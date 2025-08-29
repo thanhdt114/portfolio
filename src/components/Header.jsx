@@ -1,4 +1,4 @@
-import logo from "../assets/JT-logo.png";
+import logo from "../assets/images/JT-logo.png";
 import { useState, useEffect } from "react";
 
 function Header() {
@@ -11,8 +11,9 @@ function Header() {
 
   return (
     <>
+      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden fixed h-lvh bg-white w-full top-0 overscroll-none overflow-auto">
+        <div className="md:hidden fixed h-screen z-50 bg-white w-full top-0 overscroll-none overflow-auto">
           <div className="m-5 grid grid-cols-12">
             <img src={logo} alt="logo" className="w-16 col-span-2" />
             <button
@@ -78,6 +79,7 @@ function Header() {
         </div>
       )}
 
+      {/* Menu */}
       <div className="md:mx-8 lg:mx-16">
         <div className="m-5 grid grid-cols-12 mb-0">
           <img src={logo} alt="logo" className="w-16 col-span-2" />
@@ -101,6 +103,7 @@ function Header() {
             </svg>
           </button>
 
+          {/* Desktop menu */}
           <ul className="hidden md:flex items-center justify-end space-x-3 col-span-10 text-lg font-medium">
             <li className="hover:text-primary-hover">
               <a href="#">About me</a>
