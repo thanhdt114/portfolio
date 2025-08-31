@@ -3,19 +3,17 @@ import achievementIcon from "../assets/icons/achievement-reward-award-svgrepo-co
 const Achievements = [
   {
     icon: achievementIcon,
-    title: "DoeWeb",
-    name: "Employee of the month.",
-    link: "",
-    description:
-      "Though I was only an intern, I was highly praised at work and given promotion.",
+    title: "Java",
+    name: "Java.",
+    link: "https://www.hackerrank.com/profile/thanhdt114",
+    description: "Completed the Java badge on the HackerRank website.",
   },
   {
     icon: achievementIcon,
-    title: "DoeWeb",
-    name: "Employee of the month.",
-    link: "",
-    description:
-      "Though I was only an intern, I was highly praised at work and given promotion.",
+    title: "Cloud Foundations",
+    name: "Cloud Foundations.",
+    link: "https://www.credly.com/badges/8b164572-aeea-454b-9ed5-de4fef85474a",
+    description: "Completed the AWS Academy Cloud Foundations course.",
   },
 ];
 

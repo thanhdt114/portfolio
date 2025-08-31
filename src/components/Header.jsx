@@ -1,8 +1,18 @@
 import logo from "../assets/images/JT-logo.png";
 import { useState, useEffect } from "react";
+import Links from "../data/Links";
 
-function Header() {
+function Header(props) {
   const [open, setOpen] = useState(false);
+
+  const handleScroll = (event, refName) => {
+    setOpen(false);
+
+    event.preventDefault();
+    props?.[refName]?.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", open);
@@ -15,7 +25,9 @@ function Header() {
       {open && (
         <div className="md:hidden fixed h-screen z-50 bg-white w-full top-0 overscroll-none overflow-auto">
           <div className="m-5 grid grid-cols-12">
-            <img src={logo} alt="logo" className="w-16 col-span-2" />
+            <a href={Links.portfolio} className="cursor-pointer">
+              <img src={logo} alt="logo" className="w-16 col-span-2" />
+            </a>
             <button
               onClick={() => setOpen(!open)}
               className="flex items-center justify-end md:hidden col-span-10"
@@ -37,26 +49,72 @@ function Header() {
             </button>
 
             <ul className="space-y-5 col-span-12 mt-8 font-bold text-center text-lg">
-              <li className="hover:text-primary-hover">
-                <a href="#">About me</a>
+              <li className="hover:text-primary-hover cursor-pointer">
+                <a
+                  href="#"
+                  onClick={(event) => {
+                    handleScroll(event, "aboutRef");
+                  }}
+                >
+                  About me
+                </a>
               </li>
-              <li className="hover:text-primary-hover">
-                <a href="#">Skills</a>
+              <li className="hover:text-primary-hover cursor-pointer">
+                <a
+                  href="#"
+                  onClick={(event) => {
+                    handleScroll(event, "skillsRef");
+                  }}
+                >
+                  Skills
+                </a>
               </li>
-              <li className="hover:text-primary-hover">
-                <a href="#">Projects</a>
+              <li className="hover:text-primary-hover cursor-pointer">
+                <a
+                  href="#"
+                  onClick={(event) => {
+                    handleScroll(event, "projectsRef");
+                  }}
+                >
+                  Projects
+                </a>
               </li>
-              <li className="hover:text-primary-hover">
-                <a href="#">Experience</a>
+              <li className="hover:text-primary-hover cursor-pointer">
+                <a
+                  href="#"
+                  onClick={(event) => {
+                    handleScroll(event, "experienceRef");
+                  }}
+                >
+                  Experience
+                </a>
               </li>
-              <li className="hover:text-primary-hover">
-                <a href="#">Achievements</a>
+              <li className="hover:text-primary-hover cursor-pointer">
+                <a
+                  href="#"
+                  onClick={(event) => {
+                    handleScroll(event, "achievementsRef");
+                  }}
+                >
+                  Achievements
+                </a>
               </li>
-              <li className="hover:text-primary-hover">
-                <a href="#">Contact</a>
+              <li className="hover:text-primary-hover cursor-pointer">
+                <a
+                  href="#"
+                  onClick={(event) => {
+                    handleScroll(event, "contactRef");
+                  }}
+                >
+                  Contact
+                </a>
               </li>
               <li>
-                <a href="#" className="flex justify-center">
+                <a
+                  href={Links.github}
+                  target="_blank"
+                  className="flex justify-center"
+                >
                   <svg
                     className="w-9 h-9 text-primary hover:text-white hover:bg-primary-hover rounded-full"
                     aria-hidden="true"
@@ -82,7 +140,9 @@ function Header() {
       {/* Menu */}
       <div className="md:mx-8 lg:mx-16">
         <div className="m-5 grid grid-cols-12 mb-0">
-          <img src={logo} alt="logo" className="w-16 col-span-2" />
+          <a href={Links.portfolio} className="cursor-pointer">
+            <img src={logo} alt="logo" className="w-16 col-span-2" />
+          </a>
           <button
             onClick={() => setOpen(!open)}
             className="flex items-center justify-end md:hidden col-span-10"
@@ -105,26 +165,68 @@ function Header() {
 
           {/* Desktop menu */}
           <ul className="hidden md:flex items-center justify-end space-x-3 col-span-10 text-lg font-medium">
-            <li className="hover:text-primary-hover">
-              <a href="#">About me</a>
+            <li className="hover:text-primary-hover cursor-pointer">
+              <a
+                href="#"
+                onClick={(event) => {
+                  handleScroll(event, "aboutRef");
+                }}
+              >
+                About me
+              </a>
             </li>
-            <li className="hover:text-primary-hover">
-              <a href="#">Skills</a>
+            <li className="hover:text-primary-hover cursor-pointer">
+              <a
+                href="#"
+                onClick={(event) => {
+                  handleScroll(event, "skillsRef");
+                }}
+              >
+                Skills
+              </a>
             </li>
-            <li className="hover:text-primary-hover">
-              <a href="#">Projects</a>
+            <li className="hover:text-primary-hover cursor-pointer">
+              <a
+                href="#"
+                onClick={(event) => {
+                  handleScroll(event, "projectsRef");
+                }}
+              >
+                Projects
+              </a>
             </li>
-            <li className="hover:text-primary-hover">
-              <a href="#">Experience</a>
+            <li className="hover:text-primary-hover cursor-pointer">
+              <a
+                href="#"
+                onClick={(event) => {
+                  handleScroll(event, "experienceRef");
+                }}
+              >
+                Experience
+              </a>
             </li>
-            <li className="hover:text-primary-hover">
-              <a href="#">Achievements</a>
+            <li className="hover:text-primary-hover cursor-pointer">
+              <a
+                href="#"
+                onClick={(event) => {
+                  handleScroll(event, "achievementsRef");
+                }}
+              >
+                Achievements
+              </a>
             </li>
-            <li className="hover:text-primary-hover">
-              <a href="#">Contact</a>
+            <li className="hover:text-primary-hover cursor-pointer">
+              <a
+                href="#"
+                onClick={(event) => {
+                  handleScroll(event, "contactRef");
+                }}
+              >
+                Contact
+              </a>
             </li>
             <li>
-              <a href="#">
+              <a href={Links.github} target="_blank">
                 <svg
                   className="w-9 h-9 text-primary hover:text-white hover:bg-primary-hover rounded-full"
                   aria-hidden="true"

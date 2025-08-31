@@ -9,9 +9,9 @@ function Skill(props) {
       <h4 className="text-xl text-third">Technologies</h4>
 
       {props.technologies.map((technologyItem, index) => (
-        <div className="flex items-center mb-0">
-          <img src={technologyItem.icon} className="h-8"></img>
-          <p>{technologyItem.name}</p>
+        <div className="flex items-center space-y-4">
+          <img src={technologyItem.icon} className="h-8 mb-0"></img>
+          <p>&nbsp;{technologyItem.name}</p>
         </div>
       ))}
       <div className="h-2.5"></div>

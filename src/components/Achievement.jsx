@@ -7,6 +7,7 @@ function Achievement(props) {
         <a
           className="font-bold hover:underline cursor-pointer"
           href={props?.link}
+          target="_blank"
         >
           {props?.name}
         </a>

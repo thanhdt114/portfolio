@@ -7,20 +7,27 @@ import Experience from "../components/Experience";
 import Experiences from "../data/Experiences";
 import Achievement from "../components/Achievement";
 import Achievements from "../data/Achievements";
+import Links from "../data/Links";
 
-function Home() {
+function Home(props) {
+  const handleScroll = (event, refName) => {
+    event.preventDefault();
+    props?.[refName]?.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {/* About me */}
-      <div className="px-5">
+      <div className="px-5" ref={props?.aboutRef}>
         <div className="mt-18 text-center">
           <h1 className="text-5xl font-bold">Johnny Tran</h1>
           <p className="text-xl mt-5 lg:px-80 lg:mt-11 text-balance">
             I’m a full-stack developer with great experience and passion for
-            coding and building plain interfaces. I have a manic love for great
-            high-loaded projects. Plus, I’m an easy-going person and fit in any
-            team. I work remotely and save your budget on my workplace. So, if
-            you have a complicated task, you’ve found the right person. 
+            coding and building plain interfaces. I’m an easy-going person and
+            fit in any team. So, if you have a complicated task, you’ve found
+            the right person. 
           </p>
           <div className="flex justify-center mt-8 lg:mt-14">
             <img
@@ -33,7 +40,7 @@ function Home() {
       </div>
 
       {/* Skills */}
-      <div>
+      <div ref={props?.skillsRef}>
         <div className="mt-16 relative h-28 px-5 lg:mt-20 md:mt-16">
           <div className="h-24 bg-primary rounded-md lg:h-80 md:h-60"></div>
           <h1 className="text-white text-4xl font-medium flex justify-center items-end absolute inset-0">
@@ -46,15 +53,19 @@ function Home() {
           ))}
         </div>
         <div className="w-full flex justify-center">
-          <button className="md:absolute md:mt-[580px]  mt-12 bg-fourth text-white px-6 py-3 rounded-sm hover:bg-fourth-hover transition-all duration-300 cursor-pointer">
+          <a
+            href={Links?.cv}
+            target="_blank"
+            className="md:absolute md:mt-[750px]  mt-12 bg-fourth text-white px-6 py-3 rounded-sm hover:bg-fourth-hover transition-all duration-300 cursor-pointer"
+          >
             Here is my CV
-          </button>
+          </a>
         </div>
       </div>
-      <div className="h-0.5 w-full bg-gray-100 mt-16 md:mt-[720px]"></div>
+      <div className="h-0.5 w-full bg-gray-100 mt-16 md:mt-[850px]"></div>
 
       {/* Projects */}
-      <div className="mt-16 text-center ">
+      <div ref={props?.projectsRef} className="mt-16 text-center ">
         <h1 className="text-4xl font-medium">Projects</h1>
         <p className="mt-8 text-xl text-brand-gray">
           Have a look at some of the rolled-out projects I'm proud of:
@@ -65,7 +76,10 @@ function Home() {
       </div>
 
       {/* Interested */}
-      <div className="mt-18 bg-gradient-to-br from-fourth to-primary text-center px-5">
+      <div
+        ref={props?.contactRef}
+        className="mt-18 bg-gradient-to-br from-fourth to-primary text-center px-5"
+      >
         <h1 className="text-white text-4xl text-balance font-medium pt-30">
           Interested in working together?
         </h1>
@@ -74,13 +88,16 @@ function Home() {
           something nice and complicated. Let's discuss all the features in a
           private conversation.
         </p>
-        <button className="text-primary bg-white px-6 py-3 rounded-sm font-medium mt-8 mb-21 hover:bg-gray-200 cursor-pointer transition-all duration-300">
+        <button
+          onClick={(event) => handleScroll(event, "contactRef")}
+          className="text-primary bg-white px-6 py-3 rounded-sm font-medium mt-8 mb-21 hover:bg-gray-200 cursor-pointer transition-all duration-300"
+        >
           Contact me
         </button>
       </div>
 
       {/* Experience */}
-      <div className="mt-18 mx-5">
+      <div className="mt-18 mx-5" ref={props?.experienceRef}>
         <h1 className="text-center text-4xl font-medium">Experience</h1>
         <div className="mt-18 space-y-14 md:hidden">
           {Experiences.map((experienceItem, index) => (
@@ -147,7 +164,7 @@ function Home() {
       </div>
 
       {/* Achievements */}
-      <div className="md:mb-[500px] lg:mb-[450px]">
+      <div className="md:mb-[500px] lg:mb-[450px]" ref={props?.achievementsRef}>
         <div className="mt-18 relative h-28 px-5 md:mt-0">
           <div className="h-24 bg-fourth rounded-md lg:h-80 md:h-60"></div>
           <h1 className="text-white text-4xl font-medium flex justify-center items-end absolute inset-0">
@@ -162,7 +179,7 @@ function Home() {
       </div>
 
       {/* Contact */}
-      <div className="relative">
+      <div className="relative" ref={props?.contactRef}>
         <div className="md:mt-0 mt-20 mx-5 md:grid md:grid-cols-2 md:gap-11 lg:mx-20 items-center md:mx-10 absolute z-50">
           <div className="bg-white md:h-full border-2 border-gray-100 shadow-primary py-8 px-6 text-center text-balance rounded-md">
             <h1 className="text-4xl font-medium">Contact me</h1>

@@ -8,7 +8,11 @@ function Project(props) {
           <p className="my-8 text-brand-gray text-balance">
             {props?.description}
           </p>
-          <a className="text-fifth text-lg hover:underline" href={props?.link}>
+          <a
+            className="text-fifth text-lg hover:underline"
+            href={props?.link}
+            target="_blank"
+          >
             View project
           </a>
         </div>
